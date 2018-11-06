@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App" data-test="component-app">
         <h1>Button Game</h1>
-        <h2>The counter is currently {button}</h2>
+        <h2 data-test="counter-display">The counter is currently {button}</h2>
         <button
           data-test="decrement-button"
           onClick={() =>

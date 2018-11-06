@@ -26,8 +26,16 @@ test("renders without errors", () => {
   expect(appComponent.length).toBe(1);
 });
 
-test("clicking button decrements counter display"),
-  () => {
-    const counter = 10;
-    const wrapper = setup(null, { counter });
-  };
+test("clicking button decrements counter display", () => {
+  const counter = 10;
+  const wrapper = setup(null, { counter });
+
+  // Find button and click
+  const button = findByTestAttr(wrapper, "decrement-button");
+  button.simulate("click");
+  wrapper.update();
+
+  // Find display and test value
+  const counterDisplay = findByTestAttr(wrapper, "counter-display");
+  expect(counterDisplay.text()).toContain(counter - 1);
+});
